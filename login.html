@@ -1,0 +1,51 @@
+User
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="background-img">
+        <div class="overlay"></div> <!-- Überlagerungs-Div -->
+    </div>
+
+    <!-- Inhalt der Seite -->
+    <main>
+        <!-- NAV -->
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">Gallery</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+
+        <!-- LOGIN CONTAINER -->
+        <div class="login-container">
+            <h2>Login</h2>
+            <p>New to this website? <a href="#">Create Account.</a></p>
+            <!-- normal login button -->
+            <form action="">
+                <input type="text" placeholder="Username" required>
+                <input type="password" placeholder="Password" required>
+                <button type="login" class="login-button" onclick="login()">Login</button>
+            </form>
+            <!-- google login button-->
+            <div class="google-login">
+                <button class="google-button" onclick="google_login()">
+                    <img src="photos/pngfind.com-google-icon-png-344426.png" alt="Google Logo" class="google-logo">
+                    Login with Google
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- JS -->
+    <script src="script.js"></script>
+
+</body>
+</html>
