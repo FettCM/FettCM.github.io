@@ -24,7 +24,7 @@ function wwwgoogle_login() {
 
 async function google_login() {
 
-    let token = await navigator.credentials.get (
+    let token = await navigator.credentials.get(
         {
             "identity": {
               "providers": [
@@ -41,5 +41,3 @@ async function google_login() {
 
     console.log(token)
 }
-
-// host name a.com -> localhost
