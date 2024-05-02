@@ -1,4 +1,4 @@
-var name = "";
+var given_name = "";
 var jwt = "";
 function login() {
     alert("Login-Service aktuell nicht verfügbar. Bitte nutzen Sie den Login über Google.")
@@ -19,14 +19,14 @@ async function google_login() {
           }
       }
   )
-  var jwt = token.token;
+  jwt = token.token;
   console.log("jwt: " + jwt);
 
   // decode jwt
   var decoded = decode_JWT(jwt);
   console.log(decoded);
-  var name = decoded.payload.given_name;
-  console.log(name);
+  given_name = decoded.payload.given_name;
+  console.log(given_name);
 
   // forward to welcome page
   window.location.href = "https://fettcm.github.io/FettCM/welcome.html";
