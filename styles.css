@@ -48,13 +48,6 @@ main {
     transition: filter 0.3s; /* für hover */
 }
 
-
-
-
-
 .image-container img:last-child {
     margin-right: 0; /* kein abstand für letzes Bild */
 }
-
-
-
