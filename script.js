@@ -42,3 +42,28 @@ function decode_JWT (jwt){
     payload: payload
   };
 }
+
+function display_username() {
+  var name_span = document.getElementById('name_span');
+  if (given_name && name_span) {
+      name_span.textContent = given_name;
+  }
+}
+
+function display_token() {
+  setTimeout(function() {
+
+      // container for token
+      var token_container = document.getElementById('token_container');
+      
+      if (jwt && token_container) {
+          var text = "Token: " + jwt;
+          token_container.textContent = text;
+
+          if (token_container.scrollWidth > token_container.clientWidth) {
+              token_container.style.wordWrap = "break-word"
+          }
+          token_container.style.textAlign = "left";
+      }
+  }, 1000); 
+}
