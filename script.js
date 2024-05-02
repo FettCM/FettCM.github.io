@@ -5,39 +5,29 @@ function login() {
 }
 
 async function google_login() {
-  try {
-    token = await navigator.credentials.get(
-        {
-            "identity": {
-              "providers": [
-                {
-                  "configURL": "https://accounts.google.com/gsi/fedcm.json",
-                  "clientId": "342508061076-mq47slkvmimktvh3ht8lmql4f344ij67.apps.googleusercontent.com",
-                  "nonce": "1337"
-                }
-              ],
-              "context": "signin"
-            }
-        }
-    )
-    //
-    setTimeout(1000);
-    console.log(token);
 
-    // decode token
-    var decoded = decode_JWT(token);
-    console.log(decoded);
-    var name = decoded.payload.given_name;
-    console.log(name);
+  token = await navigator.credentials.get(
+      {
+          "identity": {
+            "providers": [
+              {
+                "configURL": "https://accounts.google.com/gsi/fedcm.json",
+                "clientId": "342508061076-mq47slkvmimktvh3ht8lmql4f344ij67.apps.googleusercontent.com",
+                "nonce": "1337"
+              }
+            ],
+            "context": "signin"
+          }
+      }
+  )
+  // decode token
+  var decoded = decode_JWT(token);
+  console.log(decoded);
+  var name = decoded.payload.given_name;
+  console.log(name);
 
-    // forward to welcome page
-    window.location.href = "https://fettcm.github.io/FettCM/welcome.html";
-  }
-  catch {
-    // user is not logged into IdP
-    alert("Please log into the Google IdP.")
-    window.location.href = "https://accounts.google.com/gsi/fedcm/signin";
-  }
+  // forward to welcome page
+  window.location.href = "https://fettcm.github.io/FettCM/welcome.html";
 }
 
 function decode_JWT (token){
