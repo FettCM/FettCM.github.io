@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Erfolgreich eingeloggt</title>
+    <link rel="stylesheet" href="welcome-styles.css">
+</head>
+<body>
+    <div class="background-img">
+        <div class="overlay"></div> <!-- Überlagerungs-Div -->
+    </div>
+    <!-- NAV -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">Gallery</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>Hallo <span id="name_span" class="green-text"></span>, du hast dich erfolgreich eingeloggt!"</h1>
+        <div id="token_container"></div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        function display_username() {
+            var display_name = name;
+            var name_span = document.getElementById('name_span');
+            if (name && name_span) {
+                name_span.textContent = name;
+            }
+        }
+
+        function display_token() {
+            setTimeout(function() {
+
+                // container for token
+                var token_container = document.getElementById('token_container');
+                
+                if (token && token_container) {
+                    var text = "Token: " + token;
+                    token_container.textContent = text;
+
+                    if (token_container.scrollWidth > token_container.clientWidth) {
+                        token_container.style.wordWrap = "break-word"
+                    }
+
+                    token_container.style.textAlign = "left";
+                }
+            }, 100); // 100 ms
+        }
+
+        // call function on page load
+        window.onload = function() {
+            display_username();
+            display_token();
+        };
+
+        
+
+
+
+    </script>
+</body>
+</html>
