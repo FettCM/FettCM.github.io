@@ -20,6 +20,9 @@ async function google_login() {
             }
         }
     )
+    //
+    setTimeout(1000);
+    
     // decode token
     var decoded = decode_JWT(token);
     var name = decoded.payload.given_name;
@@ -30,7 +33,7 @@ async function google_login() {
   catch {
     // user is not logged into IdP
     alert("Please log into the Google IdP.")
-    window.location.href("https://accounts.google.com/gsi/fedcm/signin");
+    window.location.href = "https://accounts.google.com/gsi/fedcm/signin";
   }
 }
 
