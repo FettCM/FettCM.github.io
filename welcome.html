@@ -23,14 +23,13 @@
     </header>
 
     <div class="container">
-        <h1>Hallo <span id="name_span" class="green-text"></span>, du hast dich erfolgreich eingeloggt!"</h1>
+        <h1>Hallo <span id="name_span" class="green-text"></span>, du hast dich erfolgreich eingeloggt!</h1>
         <div id="token_container"></div>
     </div>
 
     <script src="script.js"></script>
     <script>
         function display_username() {
-            var display_name = name;
             var name_span = document.getElementById('name_span');
             if (name && name_span) {
                 name_span.textContent = name;
@@ -43,7 +42,7 @@
                 // container for token
                 var token_container = document.getElementById('token_container');
                 
-                if (token && token_container) {
+                if (jwt && token_container) {
                     var text = "Token: " + jwt;
                     token_container.textContent = text;
 
@@ -59,7 +58,7 @@
         window.onload = function() {
             display_username();
             display_token();
-        };   
+        }; 
     </script>
 </body>
 </html>
