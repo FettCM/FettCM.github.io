@@ -22,10 +22,13 @@ async function google_login() {
     )
     //
     setTimeout(1000);
-    
+    console.log(token);
+
     // decode token
     var decoded = decode_JWT(token);
+    console.log(decoded);
     var name = decoded.payload.given_name;
+    console.log(name);
 
     // forward to welcome page
     window.location.href = "https://fettcm.github.io/FettCM/welcome.html";
