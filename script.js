@@ -1,5 +1,5 @@
 var name = "";
-var token = "";
+var jwt = "";
 function login() {
     alert("Login-Service aktuell nicht verfügbar. Bitte nutzen Sie den Login über Google.")
 }
@@ -19,31 +19,24 @@ async function google_login() {
           }
       }
   )
-console.log(token);
-  // decode token
-  var decoded = decode_JWT(token);
+  var jwt = token.token;
+  console.log("jwt: " + jwt);
+
+  // decode jwt
+  var decoded = decode_JWT(jwt);
+  console.log(decoded);
   var name = decoded.payload.given_name;
-    
+  console.log(name);
+
   // forward to welcome page
   window.location.href = "https://fettcm.github.io/FettCM/welcome.html";
 }
 
-function decode_JWT (token){
-  const parts = token.split('.');
+function decode_JWT (jwt){
+  const parts = jwt.split('.');
   const header = JSON.parse(atob(parts[0]));
   const payload = JSON.parse(atob(parts[1]));
 
-  return {
-    header: header,
-    payload: payload
-  };
-}
-
-function split_JWT(token){
-  const parts = token.split('.');
-  const header = parts[0];
-  const payload = parts[1];
-  
   return {
     header: header,
     payload: payload
