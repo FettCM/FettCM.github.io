@@ -51,11 +51,12 @@
                     }
                     token_container.style.textAlign = "left";
                 }
-            }, 100); // 100 ms
+            }, 1000); // 100 ms
         }
 
         // call function on page load
         window.onload = function() {
+            setTimeout(1000);
             display_username();
             display_token();
         }; 
