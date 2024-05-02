@@ -55,9 +55,8 @@
 
         // call function on page load
         window.onload = function() {
-            setTimeout(1000);
-            display_username();
-            display_token();
+            setTimeout(display_username, 1000); 
+            setTimeout(display_token, 2000);  
             console.log("hallo");
         }; 
     </script>
