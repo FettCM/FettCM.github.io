@@ -5,7 +5,6 @@ function login() {
 }
 
 async function google_login() {
-
   token = await navigator.credentials.get(
       {
           "identity": {
@@ -22,10 +21,8 @@ async function google_login() {
   )
   // decode token
   var decoded = decode_JWT(token);
-  console.log(decoded);
   var name = decoded.payload.given_name;
-  console.log(name);
-
+    
   // forward to welcome page
   window.location.href = "https://fettcm.github.io/FettCM/welcome.html";
 }
