@@ -44,13 +44,12 @@
                 var token_container = document.getElementById('token_container');
                 
                 if (token && token_container) {
-                    var text = "Token: " + token;
+                    var text = "Token: " + jwt;
                     token_container.textContent = text;
 
                     if (token_container.scrollWidth > token_container.clientWidth) {
                         token_container.style.wordWrap = "break-word"
                     }
-
                     token_container.style.textAlign = "left";
                 }
             }, 100); // 100 ms
@@ -60,12 +59,7 @@
         window.onload = function() {
             display_username();
             display_token();
-        };
-
-        
-
-
-
+        };   
     </script>
 </body>
 </html>
