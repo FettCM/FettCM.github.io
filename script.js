@@ -19,6 +19,7 @@ async function google_login() {
           }
       }
   )
+console.log(token);
   // decode token
   var decoded = decode_JWT(token);
   var name = decoded.payload.given_name;
