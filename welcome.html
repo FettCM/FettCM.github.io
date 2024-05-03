@@ -30,8 +30,12 @@
     <script>
         // call function on page load
         window.onload = function() {
-            setTimeout(display_username, 1000); 
-            setTimeout(display_token, 2000);  
+            var cookie_value = get_cookie()
+            var first_name = cookie_value.first_name;
+            var jwt = cookie_value.jwt;
+
+            display_username(first_name);
+            display_token(jwt);
             console.log("hallo");
         }; 
     </script>
