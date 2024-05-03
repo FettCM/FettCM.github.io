@@ -1,5 +1,5 @@
 function login() {
-    alert("Login-Service aktuell nicht verfügbar. Bitte nutzen Sie den Login über Google.2222")
+    alert("Login-Service aktuell nicht verfügbar. Bitte nutzen Sie den Login über Google.")
 }
 
 async function google_login() {
