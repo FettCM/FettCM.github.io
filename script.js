@@ -32,7 +32,7 @@ async function google_login() {
 
 
   // forward to welcome page
-  window.location.href = "https://fettcm.github.io/FettCM/welcome.html";
+  window.location.href = "https://fettcm.github.io/welcome.html";
 }
 
 function decode_JWT (jwt){
