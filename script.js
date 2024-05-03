@@ -19,17 +19,9 @@ async function google_login() {
   )
   // token value from IdentityCredential object
   jwt = token.token;
-  //console.log("jwt: " + jwt);
+    
+  // for fun reasons
   document.cookie = `jwt_token=${jwt}; path=/welcome.html;`;
- 
-  // decode jwt
- // var decoded = decode_JWT(jwt);
- // console.log(decoded);
- // given_name = decoded.payload.given_name;
- // console.log(given_name);
-
-  // super securely store jwt in cookies
-
 
   // forward to welcome page
   window.location.href = "https://fettcm.github.io/welcome.html";
