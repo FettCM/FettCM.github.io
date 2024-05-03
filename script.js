@@ -1,7 +1,7 @@
 function login() {
     alert("Login-Service aktuell nicht verfügbar. Bitte nutzen Sie den Login über Google.55555")
 }
-
+// can you please update this shit wth github???
 async function google_login() {
   token = await navigator.credentials.get(
       {
