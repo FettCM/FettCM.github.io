@@ -1,7 +1,7 @@
 function login() {
-    alert("Login-Service aktuell nicht verfügbar. Bitte nutzen Sie den Login über Google.55555")
+    alert("Login-Service aktuell nicht verfügbar. Bitte nutzen Sie den Login über Google.2222")
 }
-// can you please update this shit wth github???
+
 async function google_login() {
   token = await navigator.credentials.get(
       {
@@ -20,7 +20,7 @@ async function google_login() {
   // token value from IdentityCredential object
   jwt = token.token;
   //console.log("jwt: " + jwt);
-  document.cookie = "jwt_token=${jwt}; path=/welcome.html;"
+  document.cookie = `jwt_token=${jwt}; path=/welcome.html;`;
  
   // decode jwt
  // var decoded = decode_JWT(jwt);
