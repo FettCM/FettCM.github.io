@@ -1,5 +1,3 @@
-var given_name = "";
-var jwt = "";
 function login() {
     alert("Login-Service aktuell nicht verfügbar. Bitte nutzen Sie den Login über Google.")
 }
@@ -19,14 +17,19 @@ async function google_login() {
           }
       }
   )
+  // token value from IdentityCredential object
   jwt = token.token;
-  console.log("jwt: " + jwt);
-
+  //console.log("jwt: " + jwt);
+  document.cookie = "jwt_token=${jwt}; path=/welcome.html;"
+ 
   // decode jwt
-  var decoded = decode_JWT(jwt);
-  console.log(decoded);
-  given_name = decoded.payload.given_name;
-  console.log(given_name);
+ // var decoded = decode_JWT(jwt);
+ // console.log(decoded);
+ // given_name = decoded.payload.given_name;
+ // console.log(given_name);
+
+  // super securely store jwt in cookies
+
 
   // forward to welcome page
   window.location.href = "https://fettcm.github.io/FettCM/welcome.html";
@@ -43,16 +46,28 @@ function decode_JWT (jwt){
   };
 }
 
-function display_username() {
+function get_cookie(){
+  const cookie_value = document.cookie.split("=");
+  var jwt = cookie_value[1];
+
+  // decode jwt to get name
+  var first_name = decode_JWT(jwt).payload.given_name;
+
+  return {
+    first_name: first_name,
+    jwt: jwt
+  };
+}
+
+
+function display_username(first_name) {
   var name_span = document.getElementById('name_span');
-  if (given_name && name_span) {
-      name_span.textContent = given_name;
+  if (first_name && name_span) {
+      name_span.textContent = first_name;
   }
 }
 
-function display_token() {
-  setTimeout(function() {
-
+function display_token(jwt) {
       // container for token
       var token_container = document.getElementById('token_container');
       
@@ -65,5 +80,4 @@ function display_token() {
           }
           token_container.style.textAlign = "left";
       }
-  }, 1000); 
 }
