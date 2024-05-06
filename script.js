@@ -76,3 +76,4 @@ function display_token(jwt) {
 function remove_cookie(c_name){
     document.cookie = `${c_name}= ; expires = Thu, 01 Jan 1970 00:00:00 GMT;`;
 }
+// ......
