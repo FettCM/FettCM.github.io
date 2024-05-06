@@ -51,7 +51,6 @@ function get_cookie(){
   };
 }
 
-
 function display_username(first_name) {
   var name_span = document.getElementById('name_span');
   if (first_name && name_span) {
@@ -72,4 +71,8 @@ function display_token(jwt) {
           }
           token_container.style.textAlign = "left";
       }
+}
+
+function remove_cookie(c_name){
+    document.cookie = `${c_name}= ; expires = Thu, 01 Jan 1970 00:00:00 GMT;`;
 }
