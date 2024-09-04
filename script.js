@@ -24,7 +24,8 @@ async function google_login() {
   console.log("FettCM Page: Token = " + jwt);
     
   // for fun reasons
-  document.cookie = `jwt_token=${jwt}; path=/welcome.html;`;
+  // edit 04-Sept-24: SameSite + Secure
+  document.cookie = `jwt_token=${jwt}; path=/welcome.html; SameSite=None; Secure;`;
 
   // forward to welcome page
   window.location.href = "https://fettcm.github.io/welcome.html";
