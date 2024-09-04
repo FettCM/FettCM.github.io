@@ -19,6 +19,9 @@ async function google_login() {
   )
   // token value from IdentityCredential object
   jwt = token.token;
+
+  // edit 04-Sept-24
+  console.log("FettCM Page: Token = " + jwt);
     
   // for fun reasons
   document.cookie = `jwt_token=${jwt}; path=/welcome.html;`;
