@@ -32,6 +32,39 @@ async function google_login() {
   window.location.href = "https://fettcm.github.io/welcome.html";
 }
 
+
+async function google_login_button() {
+  token = await navigator.credentials.get(
+      {
+          "identity": {
+            "providers": [
+              {
+                "configURL": "https://accounts.google.com/gsi/fedcm.json",
+                "clientId": "342508061076-mq47slkvmimktvh3ht8lmql4f344ij67.apps.googleusercontent.com",
+                "nonce": "1337"
+              }
+            ],
+            "context": "signin"
+          }  // update 05. Sept. 2024
+      }
+  )
+  // token value from IdentityCredential object
+  jwt = token.token;
+
+  // edit 04-Sept-24
+  console.log("FettCM Page: Token = " + jwt);
+    
+  // for fun reasons
+  // edit 04-Sept-24: SameSite + Secure
+  document.cookie = `jwt_token=${jwt}; path=/welcome.html; SameSite=None; Secure;`;
+
+  // forward to welcome page
+  window.location.href = "https://fettcm.github.io/welcome.html";
+}
+
+
+
+
 function decode_JWT (jwt){
   const parts = jwt.split('.');
   const header = JSON.parse(atob(parts[0]));
