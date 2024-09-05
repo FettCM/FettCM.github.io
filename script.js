@@ -14,8 +14,7 @@ async function google_login() {
               }
             ],
             "context": "signin"
-          },
-          "mediation":"silent"  // update 05. Sept. 2024
+          }
       }
   )
   // token value from IdentityCredential object
